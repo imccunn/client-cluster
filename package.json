@@ -1,0 +1,32 @@
+{
+  "name": "client-cluster",
+  "version": "0.1.0",
+  "description": "Generate a number of clients to make procedurally generated connections to a server.",
+  "main": "index",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imccunn/client-cluster.git"
+  },
+  "author": "Ian D. McCunn <ianmccunn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imccunn/client-cluster/issues"
+  },
+  "homepage": "https://github.com/imccunn/client-cluster",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.2",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.8.1"
+  }
+}
