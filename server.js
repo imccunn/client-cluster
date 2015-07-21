@@ -1,6 +1,9 @@
 'use strict';
 
-const net = require('net');
+var net = require('net');
+var http = require('http');
+var cluster = require('cluster');
+var nCPU = require('os').cpus().length;
 
 function println(text) {
   return text + '\n'; 
@@ -18,11 +21,10 @@ function connectionHandler(connection) {
     console.log('User disconnected.');
   });
 }
+var server = net.createServer(connectionHandler);
 
-const server = net.createServer(connectionHandler);
-
-const PORT = 3333;
-
-server.listen(PORT, function() {
-  console.log('Awaiting connections...');
-})
+server.listen(3333, function() {
+  console.log('listening');
+  console.log('Server CPU Info: Cores:', nCPU);
+  console.log(require('os').cpus());
+});
