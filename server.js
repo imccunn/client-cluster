@@ -34,6 +34,7 @@ function connectionHandler2(connection) {
     console.log('User disconnected.');
   });
 }
+
 var server = net.createServer(connectionHandler);
 var server2 = net.createServer(connectionHandler2);
 
@@ -49,4 +50,5 @@ server2.listen(8080, function() {
   console.log('Server CPU Info: Cores:', nCPU);
   console.log(require('os').cpus());
 });
+
 
