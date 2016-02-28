@@ -11,6 +11,7 @@ function println(text) {
 
 function ConnectionHandler() {
   return function(socket) {
+    socket.properties = {};
     console.log('A user connected.');
     console.log('Remote Addr: ', socket.remoteAddress);
     socket.write(println('you\'ve connected.'));
@@ -20,7 +21,15 @@ function ConnectionHandler() {
       if (params[0] === 'name') {
         socket.name = params[1];
       }
-      console.log('User ' + socket.name + ' sent: ', data.toString('utf-8'));
+      if (params[0] === 'set') {
+        socket.properties[params[1]] = params[2];
+        socket.write('property set.\n');
+      }
+
+      if (params[0] === 'properties') {
+        socket.write('Properties: \n' + JSON.stringify(socket.properties));
+      }
+      console.log('User ' + socket.name + ' sent: ' + data.toString('utf-8'));
     }) 
     socket.on('close', function() {
       console.log('User disconnected.');
