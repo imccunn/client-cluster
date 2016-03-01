@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/imccunn/client-cluster",
   "devDependencies": {
+    "eslint": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.1.2",
     "mocha": "^2.2.5"

@@ -30,11 +30,11 @@ function ConnectionHandler() {
         socket.write('Properties: \n' + JSON.stringify(socket.properties));
       }
       console.log('User ' + socket.name + ' sent: ' + data.toString('utf-8'));
-    }) 
+    });
     socket.on('close', function() {
       console.log('User disconnected.');
     });
-  }
+  };
 }
 
 function createServer(connectionHandler) {
