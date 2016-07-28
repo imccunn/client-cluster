@@ -13,14 +13,17 @@ var req = http.request(options, function(res) {
   console.log('STATUS:' + res.statusCode);
   console.log('HEADERS: ' + JSON.stringify(res.headers));
   res.setEncoding('utf-8');
+  var data = '';
   res.on('data', function(chunk) {
-   
-    console.log('BODY: ' + chunk);
+    data += chunk;
   });
+  res.on('end', function() {
+    console.log(data);
+  })
 });
 
-req.on('errpr', function(e) {
-  console.log('problem with request: ' + e.message);
+req.on('error', function(e) {
+  console.log('problem with request: ', e.message);
 });
 
 req.end();
